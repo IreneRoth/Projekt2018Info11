@@ -3,12 +3,12 @@ import java.awt.Color;
 
 public class Karotte extends Geschoss
 {
+    
     final static int START_X = 7;
     final static int START_Y = 9;
     private int count=0;
     private int xHase;
     private int yHase;
-//    hj<sDFKIJNFDSIKH"
     private int xAbstand;
     private int yAbstand;
 
