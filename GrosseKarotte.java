@@ -24,6 +24,10 @@ public class GrosseKarotte extends Geschoss
         setLocation(location);
     }
 
+    public boolean istAmZiel(){
+        return false;
+    }
+    
     public void reagiereAufTreffer(Location loc){
         int x = loc.getX();
         int y = loc.getY();

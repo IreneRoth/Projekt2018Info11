@@ -23,6 +23,10 @@ public class Tomate extends Geschoss
         setLocation(location);
         System.out.println("CLICK" + x + " " + y);
     }
+    
+    public boolean istAmZiel(){
+        return false;
+    }
 
     public void reagiereAufTreffer(Location loc){
         int x = loc.getX();
