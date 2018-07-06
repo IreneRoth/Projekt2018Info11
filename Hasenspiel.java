@@ -17,6 +17,7 @@ public class Hasenspiel extends GameGrid implements GGMouseListener
         addMouseListener(this, GGMouse.lClick);
         simulationPeriod=10;
         doRun();
+        // das ist ein Kommentar, um das GitHubRepository zu checken
     }
     
     public Hasenspiel(GeschossTyp typ){
