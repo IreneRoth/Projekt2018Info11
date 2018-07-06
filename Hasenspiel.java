@@ -34,14 +34,6 @@ public class Hasenspiel extends GameGrid implements GGMouseListener
             g = new Karotte();
             break;
             
-            case TOMATE:
-            g = new Karotte();
-            break;
-            
-            case GROSSEKAROTTE:
-            g = new Karotte();
-            break;
-            
           default:
             System.out.println("Oje der Computer ist kaputt das darf nicht passieren ");
             break;
