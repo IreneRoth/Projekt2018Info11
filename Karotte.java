@@ -8,6 +8,7 @@ public class Karotte extends Geschoss
     private int count=0;
     //private int x;
     //private int y;
+    //
     private int xHase;
     private int yHase;
     private int xStart=630;
