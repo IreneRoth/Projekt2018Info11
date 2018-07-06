@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 
 
-public class Hasenspiel extends GameGrid implements GGMouseListener
+public class Hasenspiel extends GameGrid implements GGMouseListener, GGActorCollisionListener
 {
     
     //TODO: MausListener einbauen und dann noch die anderen Methoden aufrufen.
@@ -40,6 +40,18 @@ public class Hasenspiel extends GameGrid implements GGMouseListener
         return g;
     }
     
+    
+    public int collide(Actor actor1, Actor actor2){
+        if(actor1 instanceof Hase && actor2 instanceof Geschoss){
+            ((Geschoss) actor2).reagiereAufTreffer(actor2.getLocation());
+        } else
+        if(actor2 instanceof Hase && actor1 instanceof Geschoss){
+            ((Geschoss) actor1).reagiereAufTreffer(actor1.getLocation());
+        }
+        
+        // nach 10 zyklen wird der collision listener aktiviert....
+        return 10;
+    }
     
     public boolean mouseEvent(GGMouse mouse) {
         if (mouse.getEvent()==GGMouse.lClick) {
