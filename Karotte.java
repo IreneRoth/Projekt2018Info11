@@ -73,7 +73,6 @@ public class Karotte extends Geschoss
             } else{
                 yStart++;
             }
-            yStart=yStart-1;
             delay(10);
             Location location=gameGrid.toLocationInGrid(xStart,yStart);
             setLocation(location);
