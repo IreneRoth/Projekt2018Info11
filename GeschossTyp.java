@@ -1,5 +1,5 @@
 public enum GeschossTyp{
     
-    NORMALE_KAROTTE;
+    NORMALE_KAROTTE,TOMATE,GROSSEKAROTTE;
     
 }
