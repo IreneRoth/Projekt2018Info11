@@ -20,7 +20,7 @@ public class Karotte extends Geschoss
     }
 
     public void act() {
-        
+        fliegen();
         /**count++;
         if(count == 10){
         count=0;
@@ -32,7 +32,6 @@ public class Karotte extends Geschoss
     public void geheZu(int x,int y) {
         xHase=x;
         yHase=y;
-        fliegen();
         //Location location=gameGrid.toLocation(x,y);
         //setLocation(location);
         /*if (START_X >= x) { 
@@ -76,7 +75,6 @@ public class Karotte extends Geschoss
             delay(10);
             Location location=gameGrid.toLocationInGrid(xStart,yStart);
             setLocation(location);
-            fliegen();
         } 
         
     }
