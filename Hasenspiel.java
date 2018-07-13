@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 
 
-public class Hasenspiel extends GameGrid implements GGMouseListener, GGActorCollisionListener
+public class Hasenspiel extends GameGrid implements GGMouseListener
 {
 
     private GeschossTyp typ;
@@ -13,7 +13,9 @@ public class Hasenspiel extends GameGrid implements GGMouseListener, GGActorColl
         super (14,10,90,Color.red,false);
         setGeschossTyp(GeschossTyp.NORMALE_KAROTTE);
         addMouseListener(this, GGMouse.lClick);
+        simulationPeriod=10;
         doRun();
+        // das ist ein Kommentar, um das GitHubRepository zu checken
     }
     
     public Hasenspiel(GeschossTyp typ){
@@ -31,21 +33,12 @@ public class Hasenspiel extends GameGrid implements GGMouseListener, GGActorColl
             g = new Karotte();
             break;
             
-            case TOMATE:
-            g = new Karotte();
-            break;
-            
-            case GROSSEKAROTTE:
-            g = new Karotte();
-            break;
-            
           default:
             System.out.println("Oje der Computer ist kaputt das darf nicht passieren ");
             break;
         }
         return g;
     }
-    
     
     public int collide(Actor actor1, Actor actor2){
         if(actor1 instanceof Hase && actor2 instanceof Geschoss){
@@ -62,8 +55,8 @@ public class Hasenspiel extends GameGrid implements GGMouseListener, GGActorColl
         if (mouse.getEvent()==GGMouse.lClick) {
             Geschoss g = erstelleGeschossObjekt();
             addActor(g,new Location(7,9));
-            Location location=toLocationInGrid(mouse.getX(),mouse.getY());
-            g.geheZu(location.x,location.y);
+            //Location location=toLocationInGrid(mouse.getX(),mouse.getY());
+            g.geheZu(mouse.getX(),mouse.getY());
         }
         return true;
     }

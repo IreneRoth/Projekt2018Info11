@@ -3,33 +3,37 @@ import java.awt.Color;
 
 public class Karotte extends Geschoss
 {
-    
     final static int START_X = 7;
     final static int START_Y = 9;
     private int count=0;
+    //private int x;
+    //private int y;
     private int xHase;
     private int yHase;
-    private int xAbstand;
-    private int yAbstand;
+    private int xStart=630;
+    private int yStart=810;
 
     public Karotte(){
         super ("Bilder/karotte.png",2);
         show();
     }
 
-    
-    public void act() {    
-        count++;
+    public void act() {
+        
+        /**count++;
         if(count == 10){
-            count=0;
-            showNextSprite();
-        }
+        count=0;
+        showNextSprite();
+        }*/
 
     } 
 
     public void geheZu(int x,int y) {
-        Location location=gameGrid.toLocation(x,y);
-        setLocation(location);
+        xHase=x;
+        yHase=y;
+        fliegen();
+        //Location location=gameGrid.toLocation(x,y);
+        //setLocation(location);
         /*if (START_X >= x) { 
         x = START_X-x;
         y= START_Y-y;
@@ -53,6 +57,28 @@ public class Karotte extends Geschoss
         if (xHase!=xAbstand && yHase!=yAbstand) {
         fliegen(x,y);
         }*/
+    }
+    
+    public void fliegen() {
+        if (xHase!=xStart && yHase!=yStart) {
+            if(xHase < xStart){
+                xStart--;
+            } else{
+                xStart++;
+            }
+
+            if(yHase < yStart){
+                yStart--;
+            } else{
+                yStart++;
+            }
+            yStart=yStart-1;
+            delay(10);
+            Location location=gameGrid.toLocationInGrid(xStart,yStart);
+            setLocation(location);
+            fliegen();
+        } 
+        
     }
 
     public boolean istAmZiel(){

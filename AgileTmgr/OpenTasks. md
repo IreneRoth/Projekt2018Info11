@@ -1,0 +1,36 @@
+- based on an image of a paper sheet I wrote ideas on...
+- anyway, now we have at least one .md file. Woohoo! 
+# inpulse
+
+## +
+- instant messaging (e. g. slack/discord) 
+- (switch to gitlab if absolutely necessary)
+- make own installations possible
+1. via LAN probably - wlan asap
+2. get a few raspberry pis in here
+3. setting uo git correctly (a. k. a. google for .gitignore)
+- do more projects
+    - do something fun and new when possible
+    - make it possible as soon as possible (asap)
+
+### nice to have
+- make it open source & use only open source code and software
+- Intellij educational license
+- 
+
+## -
+- Windows Server
+- BlueJ
+- educational environments that box you in
+    - like java
+
+
+# legacy
+- markdown
+- github setup
+
+##### todo when time is not running away
+- erlang - elixir
+- scala
+- (node).js(/typescript/clojure)
+- HLSL (while we're at it...) 
