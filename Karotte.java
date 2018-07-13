@@ -12,6 +12,7 @@ public class Karotte extends Geschoss
     private int yHase;
     private int xStart=630;
     private int yStart=810;
+    private boolean fertig=false;
 
     public Karotte(){
         super ("Bilder/karotte.png",2);
@@ -19,43 +20,46 @@ public class Karotte extends Geschoss
     }
 
     public void act() {
-        if (xHase!=xStart && yHase!=yStart) {
+        if (fertig==true) {
+            gameGrid.setSimulationPeriod(1);
+            removeSelf();
+        }
+        if (xHase!=xStart) {
             if(xHase < xStart){
                 xStart--;
             } else{
                 xStart++;
             }
-
+            //yStart=yStart-1;
+            Location location=gameGrid.toLocationInGrid(xStart,yStart);
+            setLocation(location);
+            gameGrid.setSimulationPeriod(1);
+        }
+        if (yHase!=yStart) {
             if(yHase < yStart){
                 yStart--;
             } else{
                 yStart++;
             }
-            //yStart=yStart-1;
-            delay(1);
             Location location=gameGrid.toLocationInGrid(xStart,yStart);
             setLocation(location);
             gameGrid.setSimulationPeriod(1);
-        } else {
-            if (yHase>yStart) {
-                yStart++;
-                Location location=gameGrid.toLocationInGrid(xStart,yStart);
-                setLocation(location);
-                gameGrid.setSimulationPeriod(1);
-            } else {
-                yStart--;
-                Location location=gameGrid.toLocationInGrid(xStart,yStart);
-                setLocation(location);
-                gameGrid.setSimulationPeriod(1);
+        }
+        if (xHase==xStart && yHase==yStart) {
+            if (yHase==yStart) {
+                showNextSprite();
+                fertig=true;
+                gameGrid.setSimulationPeriod(500);
             }
         }
+        
         /**count++;
         if(count == 10){
         count=0;
         showNextSprite();
         }*/
 
-    } 
+    }
 
     public void geheZu(int x,int y) {
         setOnTop();

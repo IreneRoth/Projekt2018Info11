@@ -61,6 +61,10 @@ public class Hasenspiel extends GameGrid implements GGMouseListener
         return true;
     }
     
+    public void test () {
+        removeActor(new Karotte());
+    }
+    
     public void starteSpiel(){
         Hase hase = new Hase();
         addActor(hase,new Location(7,5));
