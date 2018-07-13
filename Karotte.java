@@ -19,12 +19,6 @@ public class Karotte extends Geschoss
     }
 
     public void act() {
-        if (xHase==xStart) {
-            if (yHase>yStart) {
-                
-            }
-            gameGrid.setSimulationPeriod(1);
-        }
         if (xHase!=xStart && yHase!=yStart) {
             if(xHase < xStart){
                 xStart--;
@@ -42,7 +36,19 @@ public class Karotte extends Geschoss
             Location location=gameGrid.toLocationInGrid(xStart,yStart);
             setLocation(location);
             gameGrid.setSimulationPeriod(1);
-        } 
+        } else {
+            if (yHase>yStart) {
+                yStart++;
+                Location location=gameGrid.toLocationInGrid(xStart,yStart);
+                setLocation(location);
+                gameGrid.setSimulationPeriod(1);
+            } else {
+                yStart--;
+                Location location=gameGrid.toLocationInGrid(xStart,yStart);
+                setLocation(location);
+                gameGrid.setSimulationPeriod(1);
+            }
+        }
         /**count++;
         if(count == 10){
         count=0;
@@ -83,9 +89,9 @@ public class Karotte extends Geschoss
         fliegen(x,y);
         }*/
     }
-    
+
     public void fliegen() {
-        
+
     }
 
     public boolean istAmZiel(){
