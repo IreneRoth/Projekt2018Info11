@@ -4,26 +4,59 @@ import java.awt.Color;
 public class Tomate extends Geschoss 
 {
     private int count=0;
+    private int xHase;
+    private int yHase;
+    private int xStart=630;
+    private int yStart=810;
+    private boolean fertig=false;
+
     public Tomate(){
         super ("Bilder/tomate.png",2);
         show();
     }
 
     public void act() {    
-        count++;
-        if(count == 10){
-            count=0;
-            showNextSprite();
+        if (fertig==true) {
+            gameGrid.setSimulationPeriod(1);
+            removeSelf();
+        }
+        if (xHase!=xStart) {
+            if(xHase < xStart){
+                xStart--;
+            } else{
+                xStart++;
+            }
+            //yStart=yStart-1;
+            Location location=gameGrid.toLocationInGrid(xStart,yStart);
+            setLocation(location);
+            gameGrid.setSimulationPeriod(1);
+        }
+        if (yHase!=yStart) {
+            if(yHase < yStart){
+                yStart--;
+            } else{
+                yStart++;
+            }
+            Location location=gameGrid.toLocationInGrid(xStart,yStart);
+            setLocation(location);
+            gameGrid.setSimulationPeriod(1);
+        }
+        if (xHase==xStart && yHase==yStart) {
+            if (yHase==yStart) {
+                showNextSprite();
+                fertig=true;
+                gameGrid.setSimulationPeriod(500);
+            }
         }
 
     }
-
     public void geheZu(int x,int y) {
-        Location location=gameGrid.toLocationInGrid(x,y);
-        setLocation(location);
-        System.out.println("CLICK" + x + " " + y);
+        setOnTop();
+        setActEnabled(true);
+        xHase=x;
+        yHase=y;
     }
-    
+
     public boolean istAmZiel(){
         return false;
     }
@@ -33,6 +66,5 @@ public class Tomate extends Geschoss
         int y = loc.getY();
         show(1);
 
-        
     }
 }

@@ -109,11 +109,6 @@ public class Karotte extends Geschoss
 
     }
 
-    public void mouseTouched(Actor actor, GGMouse mouse, java.awt.Point spot)
-    {
-
-    }
-
     /**Location location = gameGrid.toLocationInGrid(mouse.getX(), mouse.getY());
     switch (mouse.getEvent())
     {
